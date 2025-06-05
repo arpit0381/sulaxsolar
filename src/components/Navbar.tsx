@@ -48,8 +48,12 @@ const Navbar = () => {
                 className="h-10 w-auto"
                 onError={(e) => {
                   // Fallback to text logo if image fails to load
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'flex';
+                  const imgElement = e.currentTarget;
+                  const fallbackElement = imgElement.nextElementSibling as HTMLElement;
+                  imgElement.style.display = 'none';
+                  if (fallbackElement) {
+                    fallbackElement.style.display = 'flex';
+                  }
                 }}
               />
               {/* Fallback logo */}
