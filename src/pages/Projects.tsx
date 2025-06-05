@@ -35,7 +35,7 @@ const Projects = () => {
       homes: 'Industrial',
       description: 'Large-scale solar installation for a manufacturing unit, reducing dependency on grid power by 70% and achieving significant cost savings.',
       images: [
-        'https://images.unsplash.com/photo-1497435334941-8c899ee8e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        'https://cdn.pixabay.com/photo/2020/03/30/20/11/solar-panels-4985353_1280.jpg',
         'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
       ],
       features: [
@@ -48,14 +48,14 @@ const Projects = () => {
     {
       id: 3,
       title: 'Educational Institution Project',
-      location: 'IIT Kanpur Campus',
+      location: 'PSIT Kanpur Campus',
       date: 'August 2023',
       capacity: '750 kW',
       homes: 'Campus',
       description: 'Comprehensive solar solution for the university campus including hostels, academic buildings, and research facilities.',
       images: [
-        'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        'https://www.psit.ac.in/assets/webp/home/aboutpsit.webp',
+        'https://www.gkseries.com/blog/wp-content/uploads/2020/04/PSIT-Pranveer-Singh-Institute-of-Technology-Kanpur.jpg'
       ],
       features: [
         'Multiple building integration',
@@ -67,14 +67,14 @@ const Projects = () => {
     {
       id: 4,
       title: 'Commercial Shopping Complex',
-      location: 'Z Square Mall, Kanpur',
+      location: 'S-Mart Mall, Kanpur',
       date: 'June 2023',
       capacity: '300 kW',
       homes: 'Commercial',
       description: 'Rooftop solar installation for a major shopping complex, powering common areas and reducing operational costs significantly.',
       images: [
-        'https://images.unsplash.com/photo-1560418418-4d0451b04949?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        'https://cdn.pixabay.com/photo/2015/01/13/17/34/facade-598426_1280.jpg',
+        'https://cdn.pixabay.com/photo/2017/09/12/13/23/photovoltaic-system-2742308_1280.jpg'
       ],
       features: [
         'Optimal space utilization',
@@ -83,25 +83,25 @@ const Projects = () => {
         'Environmental certification'
       ]
     },
-    {
-      id: 5,
-      title: 'Government Office Complex',
-      location: 'Collectorate Building, Lucknow',
-      date: 'April 2023',
-      capacity: '200 kW',
-      homes: 'Government',
-      description: 'Solar power solution for government offices as part of the state renewable energy initiative.',
-      images: [
-        'https://images.unsplash.com/photo-1593941707882-a5bac6861d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-      ],
-      features: [
-        'Government compliance',
-        'Public demonstration project',
-        'Energy efficiency metrics',
-        'Community awareness'
-      ]
-    },
+    // {
+    //   id: 5,
+    //   title: 'Government Office Complex',
+    //   location: 'Collectorate Building, Lucknow',
+    //   date: 'April 2023',
+    //   capacity: '200 kW',
+    //   homes: 'Government',
+    //   description: 'Solar power solution for government offices as part of the state renewable energy initiative.',
+    //   images: [
+    //     'https://images.unsplash.com/photo-1593941707882-a5bac6861d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    //     'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    //   ],
+    //   features: [
+    //     'Government compliance',
+    //     'Public demonstration project',
+    //     'Energy efficiency metrics',
+    //     'Community awareness'
+    //   ]
+    // },
     {
       id: 6,
       title: 'Agro-Solar Farm Project',

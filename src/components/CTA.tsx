@@ -45,7 +45,7 @@ const CTA = () => {
               href="tel:+919876543210"
               className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
             >
-              Call Now: +91 98765 43210
+              Call Now: +91 7390027342
             </a>
           </motion.div>
 
@@ -93,7 +93,7 @@ const CTA = () => {
               </a>
               
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/+917390027342"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center space-x-3 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300"
@@ -122,7 +122,7 @@ const CTA = () => {
 
       {/* Floating WhatsApp Button */}
       <motion.a
-        href="https://wa.me/919876543210"
+        href="https://wa.me/+917390027342"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:shadow-xl transition-all duration-300 z-50"
@@ -132,7 +132,7 @@ const CTA = () => {
         animate={{ scale: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 200 }}
       >
-        💬
+        <img src="https://cdn-icons-png.flaticon.com/128/3536/3536445.png" alt="" />
       </motion.a>
     </section>
   );

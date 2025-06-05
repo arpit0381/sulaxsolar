@@ -31,19 +31,19 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+91 9876543210', '+91 8765432109'],
+      details: ['+91 7390027342', '+91 9026855790'],
       action: 'tel:+919876543210'
     },
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@sulaxsolar.com', 'support@sulaxsolar.com'],
-      action: 'mailto:info@sulaxsolar.com'
+      details: ['info@sulaxsolar.com', 'industriessulax@gmail.com'],
+      action: 'mailto:industriessulax@gmail.com'
     },
     {
       icon: MapPin,
       title: 'Address',
-      details: ['123 Solar Street, Green Valley', 'Kanpur, Uttar Pradesh 208001'],
+      details: ['Sulax Solar pvt ltd', 'Kanpur, Uttar Pradesh 208021'],
       action: null
     },
     {
@@ -237,7 +237,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <a
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/917390027342"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full text-center bg-white text-green-600 py-3 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-100 transition-colors"

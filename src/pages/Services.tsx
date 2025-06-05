@@ -19,7 +19,7 @@ const Services = () => {
         'Net metering setup',
         'Complete installation and commissioning'
       ],
-      image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: '/res.png' // Placeholder for PNG logo, replace with actual image URL
     },
     {
       icon: Factory,
@@ -33,7 +33,7 @@ const Services = () => {
         'Maintenance contracts',
         'Remote monitoring systems'
       ],
-      image: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: 'com.png' // Placeholder for PNG logo, replace with actual image URL
     },
     {
       icon: Zap,
@@ -75,7 +75,7 @@ const Services = () => {
         'Mobile app monitoring',
         'Future-ready installations'
       ],
-      image: 'https://images.unsplash.com/photo-1593941707882-a5bac6861d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: 'https://mgmotor.scene7.com/is/image/mgmotor/evpedia-bn-0060?$mg-rgb-4k-image-responsive$'
     },
     {
       icon: Wrench,
@@ -89,7 +89,7 @@ const Services = () => {
         'Inverter servicing',
         'System optimization'
       ],
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+      image: 'm&i.png'
     }
   ];
 
@@ -162,9 +162,9 @@ const Services = () => {
                       ))}
                     </div>
                     
-                    <button className="mt-6 w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-300">
-                      Get Quote
-                    </button>
+                   <a href="/contact"> <button className="mt-6 w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-300">
+                    Get Quote
+                    </button></a>
                   </div>
                 </motion.div>
               ))}
@@ -187,9 +187,9 @@ const Services = () => {
               <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
                 Get a free consultation and customized quote for your solar energy needs.
               </p>
-              <button className="bg-secondary text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-secondary-light transition-colors duration-300">
+             <a href="/Contact"> <button className="bg-secondary text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-secondary-light transition-colors duration-300">
                 Schedule Free Consultation
-              </button>
+              </button></a>
             </motion.div>
           </div>
         </section>

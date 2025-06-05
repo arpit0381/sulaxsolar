@@ -13,42 +13,42 @@ const Gallery = () => {
   const galleryImages = [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'g1.png',
       category: 'residential',
       title: 'Residential Rooftop Installation',
       location: 'Kanpur, UP'
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1497435334941-8c899ee8e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'g2.png',
       category: 'commercial',
       title: 'Commercial Solar Farm',
       location: 'Lucknow, UP'
     },
     {
       id: 3,
-      src: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'g3.png',
       category: 'installation',
       title: 'Panel Installation Process',
       location: 'Agra, UP'
     },
     {
       id: 4,
-      src: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'g4.png',
       category: 'commercial',
       title: 'Ground Mounted System',
       location: 'Varanasi, UP'
     },
     {
       id: 5,
-      src: 'https://images.unsplash.com/photo-1593941707882-a5bac6861d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'g5.png',
       category: 'installation',
       title: 'EV Charging Station',
       location: 'Ghaziabad, UP'
     },
     {
       id: 6,
-      src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'g6.png',
       category: 'residential',
       title: 'Home Solar System',
       location: 'Meerut, UP'
@@ -62,14 +62,14 @@ const Gallery = () => {
     },
     {
       id: 8,
-      src: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'https://images.pexels.com/photos/8853503/pexels-photo-8853503.jpeg?auto=compress&cs=tinysrgb&w=600',
       category: 'installation',
       title: 'Maintenance Work',
       location: 'Allahabad, UP'
     },
     {
       id: 9,
-      src: 'https://images.unsplash.com/photo-1560418418-4d0451b04949?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      src: 'g7.png',
       category: 'residential',
       title: 'Villa Solar Project',
       location: 'Bareilly, UP'

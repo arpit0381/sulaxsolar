@@ -64,7 +64,7 @@ const Navbar = () => {
             <span className={`text-2xl font-bold transition-colors duration-300 ${
               isScrolled ? 'text-gray-900' : 'text-white'
             }`}>
-              Sulax Solar
+              {/* Sulax Solar */}
             </span>
           </Link>
 
@@ -92,7 +92,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              to="/contact"
+              to="/Contact"
               className="bg-gradient-to-r from-primary to-primary-light text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             >
               Get Quote

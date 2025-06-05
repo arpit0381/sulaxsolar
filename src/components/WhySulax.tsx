@@ -96,7 +96,7 @@ const WhySulax = () => {
               Join thousands of satisfied customers who have already transformed their energy consumption
             </p>
             <button className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
-              Get Your Free Quote Today
+              <a href="/Contact">Get Your Free Quote Today</a>
             </button>
           </div>
         </motion.div>

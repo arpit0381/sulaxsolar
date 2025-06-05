@@ -11,7 +11,7 @@ const TestimonialSection = () => {
       location: "Kanpur, UP",
       stars: 5,
       quote: "Sulax Solar transformed my home into a self-powered unit. The team was super professional and the installation was seamless. My electricity bills have reduced by 90%!",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+      image: "https://cdn-icons-png.flaticon.com/128/3135/3135715.png",
       project: "5kW Residential Solar"
     },
     {
@@ -19,7 +19,7 @@ const TestimonialSection = () => {
       location: "Lucknow, UP",
       stars: 5,
       quote: "Affordable and eco-friendly. Their team guided me through the PM Suryaghar process effortlessly. The government subsidy made it even more attractive. Highly recommended!",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+      image: "https://cdn-icons-png.flaticon.com/128/6997/6997662.png",
       project: "3kW Rooftop Solar"
     },
     {
@@ -27,7 +27,7 @@ const TestimonialSection = () => {
       location: "Ghaziabad, UP",
       stars: 5,
       quote: "Outstanding commercial solar solution! Our factory now runs on clean energy, reducing operational costs by 60%. Professional installation and excellent after-sales service.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+      image: "https://cdn-icons-png.flaticon.com/128/3135/3135715.png",
       project: "100kW Commercial Solar"
     },
     {
@@ -35,7 +35,7 @@ const TestimonialSection = () => {
       location: "Noida, UP",
       stars: 4,
       quote: "Great experience with Sulax Solar. The team was knowledgeable and patient in explaining everything. Installation was quick and the system has been working flawlessly for 2 years.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+      image: "https://cdn-icons-png.flaticon.com/128/6997/6997662.png",
       project: "4kW Residential Solar"
     },
     {
@@ -43,7 +43,7 @@ const TestimonialSection = () => {
       location: "Meerut, UP",
       stars: 5,
       quote: "As a real estate developer, we chose Sulax Solar for our premium housing project. They delivered high-quality solar solutions that added great value to our properties.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+      image: "https://cdn-icons-png.flaticon.com/128/3135/3135715.png",
       project: "25kW Residential Complex"
     }
   ];

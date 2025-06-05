@@ -35,28 +35,49 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <div className="flex items-center space-x-2 mb-6">
+             <Link to="/" className="flex items-center space-x-3">
+            {/* Logo container - ready for PNG logo */}
+            <div className="flex items-center justify-center">
+              {/* Placeholder for PNG logo - replace src with your logo path */}
+              <img 
+                src="/logo.png" 
+                alt="Sulax Solar Logo" 
+                className="h-10 w-auto"
+                onError={(e) => {
+                  // Fallback to text logo if image fails to load
+                  const imgElement = e.currentTarget;
+                  const fallbackElement = imgElement.nextElementSibling as HTMLElement;
+                  imgElement.style.display = 'none';
+                  if (fallbackElement) {
+                    fallbackElement.style.display = 'flex';
+                  }
+                }}
+              />
+              {/* Fallback logo */}
+              </div>
+          </Link>
+            {/* <div className="flex items-center space-x-2 mb-6">
               <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">S</span>
               </div>
               <span className="text-2xl font-bold">Sulax Solar</span>
-            </div>
+            </div> */}
             <p className="text-gray-300 leading-relaxed">
               Leading solar energy solutions provider in North India. We help homes and 
               businesses harness the power of the sun for a sustainable future.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300">
-                <span>📘</span>
+                <span><img src="https://cdn-icons-png.flaticon.com/128/145/145802.png" alt="" /></span>
               </a>
               <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300">
-                <span>📷</span>
+                <span><img src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png" alt="" /></span>
               </a>
               <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300">
-                <span>🐦</span>
+                <span><img src="https://cdn-icons-png.flaticon.com/128/12105/12105336.png" alt="" /></span>
               </a>
               <a href="#" className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300">
-                <span>💼</span>
+                <span><img src="https://cdn-icons-png.flaticon.com/128/3536/3536505.png" alt="" /></span>
               </a>
             </div>
           </motion.div>
@@ -115,7 +136,7 @@ const Footer = () => {
                 <span className="text-secondary mt-1">📍</span>
                 <div>
                   <p className="text-gray-300">
-                    123 Solar Street, Green City<br />
+                    Sulax Solar Pvt. Ltd.,<br />
                     Kanpur, Uttar Pradesh 208001
                   </p>
                 </div>
@@ -123,7 +144,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <span className="text-secondary">📞</span>
                 <a href="tel:+919876543210" className="text-gray-300 hover:text-secondary transition-colors duration-300">
-                  +91 98765 43210
+                  +91 7390027342
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -171,7 +192,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {currentYear} Sulax Solar. All rights reserved. | Powering a sustainable future.
+            © {currentYear} Sulax Solar. All rights reserved. | Empowering people Empowring world.
           </p>
           <div className="flex space-x-6 text-sm">
             <a href="#" className="text-gray-400 hover:text-secondary transition-colors duration-300">
@@ -182,6 +203,9 @@ const Footer = () => {
             </a>
             <a href="#" className="text-gray-400 hover:text-secondary transition-colors duration-300">
               Sitemap
+            </a>
+            <a href="https://connect-me-pearl-seven.vercel.app/" className="text-gray-400 hover:text-secondary transition-colors duration-300">
+              Designed by <span className="text-secondary">Arpit Bajpai</span>
             </a>
           </div>
         </div>

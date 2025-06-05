@@ -9,19 +9,19 @@ const StatsCounterSection = () => {
 
   const stats = [
     {
-      number: 10,
+      number: 15,
       suffix: '+',
       label: 'Years in Solar',
       description: 'Proven expertise in solar energy solutions'
     },
     {
-      number: 150,
+      number: 1000,
       suffix: '+',
       label: 'Residential Projects',
       description: 'Homes powered by clean energy'
     },
     {
-      number: 75,
+      number: 100,
       suffix: '+',
       label: 'Commercial Sites',
       description: 'Businesses running on solar power'

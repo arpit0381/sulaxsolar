@@ -7,25 +7,25 @@ const ServicesPreview = () => {
     {
       title: 'Residential Solar',
       description: 'Complete solar solutions for homes with PM Suryaghar Yojna benefits',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      image: '/res.png', // Placeholder for PNG logo, replace with actual image URL
       features: ['Grid-tied systems', 'Battery backup', 'Net metering', 'Government subsidies']
     },
     {
       title: 'Commercial Solar',
       description: 'Scalable solar solutions for businesses and industries',
-      image: 'https://images.unsplash.com/photo-1594736797933-d0401ba0ad65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      image: 'com.png', // Placeholder for PNG logo, replace with actual image URL
       features: ['Large scale installations', 'ROI optimization', 'Maintenance included', 'Performance monitoring']
     },
     {
       title: 'Off-Grid Systems',
       description: 'Independent solar power systems for remote locations',
-      image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      image: 'offg.png',
       features: ['Complete independence', 'Battery storage', 'Backup generator', '24/7 power supply']
     },
     {
       title: 'EV Charging',
       description: 'Solar-powered electric vehicle charging stations',
-      image: 'https://images.unsplash.com/photo-1593941707882-a5bac6861d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      image: 'https://mgmotor.scene7.com/is/image/mgmotor/evpedia-bn-0060?$mg-rgb-4k-image-responsive$',
       features: ['Fast charging', 'Solar integration', 'Smart monitoring', 'Cost effective']
     }
   ];

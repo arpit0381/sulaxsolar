@@ -49,7 +49,7 @@ const AboutUs = () => {
                   Our Journey Towards a <span className="text-primary">Sustainable Future</span>
                 </h2>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Founded in 2014 with a vision to make clean energy accessible to every household and business, 
+                  Founded in 2010 with a vision to make clean energy accessible to every household and business, 
                   Sulax Solar has emerged as one of North India's most trusted solar energy providers. Our journey 
                   began with a simple belief: everyone deserves access to affordable, clean energy.
                 </p>
@@ -61,7 +61,7 @@ const AboutUs = () => {
                 </p>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center p-4 bg-primary/10 rounded-lg">
-                    <div className="text-2xl font-bold text-primary mb-2">10+</div>
+                    <div className="text-2xl font-bold text-primary mb-2">15+</div>
                     <div className="text-sm text-gray-600">Years of Experience</div>
                   </div>
                   <div className="text-center p-4 bg-secondary/10 rounded-lg">
@@ -226,21 +226,21 @@ const AboutUs = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  name: 'Raj Kumar',
+                  name: 'Deepanshu Bajpai',
                   position: 'Founder & CEO',
-                  image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-                  description: '15+ years in renewable energy sector'
+                  image: '/owner.png',
+                  description: '20+ years in renewable energy sector'
                 },
                 {
-                  name: 'Priya Sharma',
-                  position: 'Technical Director',
-                  image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                  name: 'name',
+                  position: 'Technical Head',
+                  image: '',
                   description: 'M.Tech in Electrical Engineering'
                 },
                 {
-                  name: 'Amit Singh',
+                  name: 'name',
                   position: 'Operations Manager',
-                  image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                  image: '',
                   description: '200+ successful installations'
                 }
               ].map((member, index) => (

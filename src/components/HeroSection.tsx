@@ -94,9 +94,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             {[
-              { number: '10+', label: 'Years Experience' },
-              { number: '150+', label: 'Residential Projects' },
-              { number: '75+', label: 'Commercial Sites' },
+              { number: '15+', label: 'Years Experience' },
+              { number: '1000+', label: 'Residential Projects' },
+              { number: '100+', label: 'Commercial Sites' },
               { number: '200+', label: 'Happy Clients' }
             ].map((stat, index) => (
               <div key={index} className="text-center">
