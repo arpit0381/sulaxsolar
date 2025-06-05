@@ -38,11 +38,28 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">S</span>
+          <Link to="/" className="flex items-center space-x-3">
+            {/* Logo container - ready for PNG logo */}
+            <div className="flex items-center justify-center">
+              {/* Placeholder for PNG logo - replace src with your logo path */}
+              <img 
+                src="/logo.png" 
+                alt="Sulax Solar Logo" 
+                className="h-10 w-auto"
+                onError={(e) => {
+                  // Fallback to text logo if image fails to load
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling.style.display = 'flex';
+                }}
+              />
+              {/* Fallback logo */}
+              <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg items-center justify-center hidden">
+                <span className="text-white font-bold text-xl">S</span>
+              </div>
             </div>
-            <span className={`text-2xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+            <span className={`text-2xl font-bold transition-colors duration-300 ${
+              isScrolled ? 'text-gray-900' : 'text-white'
+            }`}>
               Sulax Solar
             </span>
           </Link>
