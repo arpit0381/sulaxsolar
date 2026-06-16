@@ -65,7 +65,7 @@ const Services = () => {
                 >
                   <div className="relative h-64">
                     <img
-                      src={service.image}
+                      src={service.image_url}
                       alt={service.title}
                       className="w-full h-full object-cover"
                     />

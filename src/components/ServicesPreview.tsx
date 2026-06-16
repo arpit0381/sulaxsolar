@@ -1,34 +1,23 @@
 
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { supabase } from '../backend/supabase';
 
 const ServicesPreview = () => {
-  const services = [
-    {
-      title: 'Residential Solar',
-      description: 'Complete solar solutions for homes with PM Suryaghar Yojna benefits',
-      image: '/res2.png', // Placeholder for PNG logo, replace with actual image URL
-      features: ['Grid-tied systems', 'Battery backup', 'Net metering', 'Government subsidies']
-    },
-    {
-      title: 'Commercial Solar',
-      description: 'Scalable solar solutions for businesses and industries',
-      image: 'com.png', // Placeholder for PNG logo, replace with actual image URL
-      features: ['Large scale installations', 'ROI optimization', 'Maintenance included', 'Performance monitoring']
-    },
-    {
-      title: 'Off-Grid Systems',
-      description: 'Independent solar power systems for remote locations',
-      image: 'offg.png',
-      features: ['Complete independence', 'Battery storage', 'Backup generator', '24/7 power supply']
-    },
-    {
-      title: 'EV Charging',
-      description: 'Solar-powered electric vehicle charging stations',
-      image: 'https://mgmotor.scene7.com/is/image/mgmotor/evpedia-bn-0060?$mg-rgb-4k-image-responsive$',
-      features: ['Fast charging', 'Solar integration', 'Smart monitoring', 'Cost effective']
-    }
-  ];
+  const [services, setServices] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      // Fetch up to 4 services for the preview on the homepage
+      const { data, error } = await supabase.from('services').select('*').order('created_at', { ascending: true }).limit(4);
+      if (!error && data) {
+        setServices(data);
+      }
+    };
+    fetchServices();
+  }, []);
+
 
   return (
     <section className="py-20 bg-gray-50">
@@ -62,7 +51,7 @@ const ServicesPreview = () => {
             >
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src={service.image}
+                  src={service.image_url}
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -78,7 +67,7 @@ const ServicesPreview = () => {
                 </p>
 
                 <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, featureIndex) => (
+                  {service.features && Array.isArray(service.features) && service.features.map((feature: string, featureIndex: number) => (
                     <li key={featureIndex} className="flex items-center text-sm text-gray-500">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
                       {feature}
