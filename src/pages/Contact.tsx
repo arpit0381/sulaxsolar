@@ -1,23 +1,59 @@
-
 import { motion } from 'framer-motion';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle, AlertCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { supabase } from '../backend/supabase';
+
+type ContactFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  // Assuming 'service' might be added later based on reset, but not in current form fields
+  service?: string;
+};
+
+type SubmissionStatus = 'idle' | 'sending' | 'success'; // Changed 'submitting' to 'sending' and removed 'error'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     phone: '',
     message: ''
   });
+  const [formStatus, setFormStatus] = useState<SubmissionStatus>('idle'); // Renamed submissionStatus to formStatus
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setFormStatus('sending');
+
+    // Send data to Supabase
+    const { error } = await supabase.from('contact_messages').insert([
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      }
+    ]);
+
+    if (error) {
+      console.error("Failed to send message", error);
+      setFormStatus('idle');
+      // In a real app we'd show a toast error here.
+      alert("Failed to send message. Please try again later.");
+      return;
+    }
+
+    setFormStatus('success');
+    setFormData({ name: '', email: '', phone: '', message: '' }); // Removed 'service' as it's not in the form fields
+
+    setTimeout(() => {
+      setFormStatus('idle');
+    }, 3000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,8 +67,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+91 7390027342', '+91 9026855790'],
-      action: 'tel:+919876543210'
+      details: ['+91 8081727840'],
+      action: 'tel:+918081727840'
     },
     {
       icon: Mail,
@@ -60,10 +96,10 @@ const Contact = () => {
         <title>Contact Us - Sulax Solar Energy Solutions</title>
         <meta name="description" content="Get in touch with Sulax Solar for free consultation, quotes, and solar energy solutions. Located in Kanpur, serving all of North India." />
       </Helmet>
-      
+
       <div className="min-h-screen">
         <Navbar />
-        
+
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-gradient-to-br from-primary/10 to-secondary/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,7 +113,7 @@ const Contact = () => {
                 Get in <span className="text-primary">Touch</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Ready to make the switch to solar energy? Contact us for a free consultation 
+                Ready to make the switch to solar energy? Contact us for a free consultation
                 and discover how we can help you achieve energy independence.
               </p>
             </motion.div>
@@ -88,7 +124,7 @@ const Contact = () => {
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              
+
               {/* Contact Form */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -98,7 +134,7 @@ const Contact = () => {
               >
                 <div className="bg-white rounded-2xl shadow-xl p-8">
                   <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
-                  
+
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -166,10 +202,31 @@ const Contact = () => {
 
                     <button
                       type="submit"
-                      className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-300"
+                      disabled={formStatus === 'sending'}
+                      className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-300 flex items-center justify-center disabled:bg-gray-400"
                     >
-                      Send Message
+                      {formStatus === 'sending' ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5 mr-2" />
+                          Send Message
+                        </>
+                      )}
                     </button>
+
+                    {formStatus === 'success' && (
+                      <div className="mt-4 p-4 bg-green-100 text-green-800 rounded-lg flex items-center">
+                        <CheckCircle className="w-5 h-5 mr-2" />
+                        <p>Thank you for your message! We'll get back to you shortly.</p>
+                      </div>
+                    )}
                   </form>
                 </div>
               </motion.div>
@@ -185,7 +242,7 @@ const Contact = () => {
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
                   <p className="text-gray-600 mb-8">
-                    We're here to help you with all your solar energy needs. Reach out to us 
+                    We're here to help you with all your solar energy needs. Reach out to us
                     through any of the following channels:
                   </p>
                 </div>
@@ -237,7 +294,7 @@ const Contact = () => {
                     </div>
                   </div>
                   <a
-                    href="https://wa.me/917390027342"
+                    href="https://wa.me/918081727840"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full text-center bg-white text-green-600 py-3 px-4 rounded-lg font-semibold mt-4 hover:bg-gray-100 transition-colors"
@@ -274,7 +331,7 @@ const Contact = () => {
               className="bg-white rounded-2xl shadow-xl overflow-hidden"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3570.4926393738!2d80.34479241473767!3d26.46523268334159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c38647c4a9e1d%3A0x2db71cc8dc41b25e!2sKanpur%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1634561234567!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=1225+Sector+7+Green+Street+Naubasta+Kanpur&z=18&output=embed"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
@@ -287,15 +344,6 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Floating WhatsApp Button */}
-        <a
-          href="https://wa.me/919876543210"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors z-50"
-        >
-          <MessageCircle className="w-6 h-6" />
-        </a>
 
         <Footer />
       </div>

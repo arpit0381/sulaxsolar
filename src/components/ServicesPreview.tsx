@@ -7,7 +7,7 @@ const ServicesPreview = () => {
     {
       title: 'Residential Solar',
       description: 'Complete solar solutions for homes with PM Suryaghar Yojna benefits',
-      image: '/res.png', // Placeholder for PNG logo, replace with actual image URL
+      image: '/res2.png', // Placeholder for PNG logo, replace with actual image URL
       features: ['Grid-tied systems', 'Battery backup', 'Net metering', 'Government subsidies']
     },
     {

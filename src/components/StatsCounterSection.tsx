@@ -1,7 +1,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import CountUp from 'react-countup';
+import CountUpModule from 'react-countup';
+
+const CountUp = (CountUpModule as any).default || CountUpModule;
 
 const StatsCounterSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -85,7 +87,7 @@ const StatsCounterSection = () => {
             Our <span className="text-secondary">Impact</span> in Numbers
           </h2>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
-            See how we're making a difference in the solar energy landscape with our 
+            See how we're making a difference in the solar energy landscape with our
             commitment to quality, sustainability, and customer satisfaction.
           </p>
         </motion.div>

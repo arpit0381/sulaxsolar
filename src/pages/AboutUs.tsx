@@ -3,18 +3,31 @@ import { motion } from 'framer-motion';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useState, useEffect } from 'react';
+import { supabase } from '../backend/supabase';
 
 const AboutUs = () => {
+  const [teamMembers, setTeamMembers] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchTeam = async () => {
+      const { data, error } = await supabase.from('team_members').select('*').order('created_at', { ascending: true });
+      if (!error && data) {
+        setTeamMembers(data);
+      }
+    };
+    fetchTeam();
+  }, []);
   return (
     <HelmetProvider>
       <Helmet>
         <title>About Sulax Solar - Your Trusted Solar Energy Partner</title>
         <meta name="description" content="Learn about Sulax Solar's journey, mission, and vision in providing sustainable solar energy solutions across North India. 10+ years of expertise in solar installations." />
       </Helmet>
-      
+
       <div className="min-h-screen">
         <Navbar />
-        
+
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-gradient-to-br from-primary/10 to-secondary/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,7 +41,7 @@ const AboutUs = () => {
                 About <span className="text-primary">Sulax Solar</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Pioneering sustainable energy solutions since 2014, we're committed to making 
+                Pioneering sustainable energy solutions since 2014, we're committed to making
                 solar power accessible and affordable for everyone.
               </p>
             </motion.div>
@@ -49,14 +62,14 @@ const AboutUs = () => {
                   Our Journey Towards a <span className="text-primary">Sustainable Future</span>
                 </h2>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Founded in 2010 with a vision to make clean energy accessible to every household and business, 
-                  Sulax Solar has emerged as one of North India's most trusted solar energy providers. Our journey 
-                  began with a simple belief: everyone deserves access to affordable, clean energy.
+                  Founded in 2023 by Strong Professionals From the Field of renewable energy with having a rich experience of 15+ years with a vision to make clean energy accessible to every household and business,
+                  Sulax Solar has emerged as one of North India's most trusted solar energy providers. Our journey
+                  began with a simple belief: Empowering People Empowering World.
                 </p>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Over the years, we've installed over 1.2 MW of solar capacity, helping hundreds of families 
-                  and businesses reduce their carbon footprint while saving on electricity costs. Our commitment 
-                  to quality, innovation, and customer satisfaction has made us the preferred choice for solar 
+                  Over the years, we've installed over Multiple KWp of solar capacity, helping hundreds of families
+                  and businesses reduce their carbon footprint while saving on electricity costs. Our commitment
+                  to quality, innovation, and customer satisfaction has made us the preferred choice for solar
                   installations across Uttar Pradesh.
                 </p>
                 <div className="grid grid-cols-2 gap-6">
@@ -115,8 +128,8 @@ const AboutUs = () => {
                 <div className="text-4xl mb-6">🎯</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  To democratize solar energy by providing high-quality, affordable solar solutions 
-                  that empower individuals and businesses to achieve energy independence while 
+                  To democratize solar energy by providing high-quality, affordable solar solutions
+                  that empower individuals and businesses to achieve energy independence while
                   contributing to a sustainable planet.
                 </p>
               </motion.div>
@@ -131,8 +144,8 @@ const AboutUs = () => {
                 <div className="text-4xl mb-6">🔮</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  To be the leading solar energy provider in India, recognized for innovation, 
-                  quality, and customer satisfaction, while playing a crucial role in India's 
+                  To be the leading solar energy provider in India, recognized for innovation,
+                  quality, and customer satisfaction, while playing a crucial role in India's
                   transition to renewable energy.
                 </p>
               </motion.div>
@@ -175,17 +188,17 @@ const AboutUs = () => {
                 {
                   icon: '🛡️',
                   title: 'Comprehensive Warranty',
-                  description: '25-year performance warranty with complete after-sales support'
+                  description: '30-year performance warranty with complete after-sales support'
                 },
                 {
                   icon: '💰',
                   title: 'Financial Benefits',
-                  description: 'Maximize savings with government subsidies and financing options'
+                  description: 'Maximize savings with government subsidies and financing options available with ROI starting from 6% with all the leading banks'
                 },
                 {
                   icon: '🌱',
                   title: 'Environmental Impact',
-                  description: 'Contribute to reducing carbon emissions and building a sustainable future'
+                  description: 'Contribute to reducing carbon emissions and building a sustainable future for your children'
                 }
               ].map((item, index) => (
                 <motion.div
@@ -224,26 +237,7 @@ const AboutUs = () => {
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  name: 'Deepanshu Bajpai',
-                  position: 'Founder & CEO',
-                  image: '/owner.png',
-                  description: '20+ years in renewable energy sector'
-                },
-                {
-                  name: 'name',
-                  position: 'Technical Head',
-                  image: '',
-                  description: 'M.Tech in Electrical Engineering'
-                },
-                {
-                  name: 'name',
-                  position: 'Operations Manager',
-                  image: '',
-                  description: '200+ successful installations'
-                }
-              ].map((member, index) => (
+              {teamMembers.map((member, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
@@ -253,7 +247,7 @@ const AboutUs = () => {
                   className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
                   <img
-                    src={member.image}
+                    src={member.image_url}
                     alt={member.name}
                     className="w-full h-64 object-cover"
                   />

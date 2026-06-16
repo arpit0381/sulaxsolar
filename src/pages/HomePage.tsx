@@ -14,8 +14,8 @@ const HomePage = () => {
     <HelmetProvider>
       <Helmet>
         <title>Sulax Solar - Leading Solar Energy Solutions in North India</title>
-        <meta name="description" content="Transform your home and business with Sulax Solar's premium solar energy solutions. Expert installation, government subsidies, 25-year warranty. Get free consultation today!" />
-        <meta name="keywords" content="solar panels, solar energy, renewable energy, PM Suryaghar Yojna, solar installation, Kanpur, Uttar Pradesh, green energy" />
+        <meta name="description" content="Transform your business and houses with Sulax Solar's premium solar energy solutions. Expert installation, PM Surya Ghar Yojna, 30-year warranty. Get free consultation today!" />
+        <meta name="keywords" content="solar panels, solar energy, renewable energy, PM Suryaghar Yojna, subsidy wala solar,solar installation, Kanpur, Uttar Pradesh, green energy" />
         <meta property="og:title" content="Sulax Solar - Leading Solar Energy Solutions" />
         <meta property="og:description" content="Transform your home and business with premium solar energy solutions. Expert installation, government subsidies, 25-year warranty." />
         <meta property="og:type" content="website" />

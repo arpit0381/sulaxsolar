@@ -1,80 +1,28 @@
 
 import { motion } from 'framer-motion';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { supabase } from '../backend/supabase';
 import { X } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Gallery = () => {
+  const [galleryImages, setGalleryImages] = useState<any[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [filter, setFilter] = useState('all');
 
-  const galleryImages = [
-    {
-      id: 1,
-      src: 'g1.png',
-      category: 'residential',
-      title: 'Residential Rooftop Installation',
-      location: 'Kanpur, UP'
-    },
-    {
-      id: 2,
-      src: 'g2.png',
-      category: 'commercial',
-      title: 'Commercial Solar Farm',
-      location: 'Lucknow, UP'
-    },
-    {
-      id: 3,
-      src: 'g3.png',
-      category: 'installation',
-      title: 'Panel Installation Process',
-      location: 'Agra, UP'
-    },
-    {
-      id: 4,
-      src: 'g4.png',
-      category: 'commercial',
-      title: 'Ground Mounted System',
-      location: 'Varanasi, UP'
-    },
-    {
-      id: 5,
-      src: 'g5.png',
-      category: 'installation',
-      title: 'EV Charging Station',
-      location: 'Ghaziabad, UP'
-    },
-    {
-      id: 6,
-      src: 'g6.png',
-      category: 'residential',
-      title: 'Home Solar System',
-      location: 'Meerut, UP'
-    },
-    {
-      id: 7,
-      src: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      category: 'commercial',
-      title: 'Industrial Installation',
-      location: 'Noida, UP'
-    },
-    {
-      id: 8,
-      src: 'https://images.pexels.com/photos/8853503/pexels-photo-8853503.jpeg?auto=compress&cs=tinysrgb&w=600',
-      category: 'installation',
-      title: 'Maintenance Work',
-      location: 'Allahabad, UP'
-    },
-    {
-      id: 9,
-      src: 'g7.png',
-      category: 'residential',
-      title: 'Villa Solar Project',
-      location: 'Bareilly, UP'
-    }
-  ];
+  useEffect(() => {
+    const fetchGallery = async () => {
+      const { data, error } = await supabase.from('gallery').select('*').order('created_at', { ascending: false });
+      if (!error && data) {
+        setGalleryImages(data);
+      }
+    };
+    fetchGallery();
+  }, []);
+
+
 
   const filterCategories = [
     { id: 'all', label: 'All Projects' },
@@ -83,8 +31,8 @@ const Gallery = () => {
     { id: 'installation', label: 'Installations' }
   ];
 
-  const filteredImages = filter === 'all' 
-    ? galleryImages 
+  const filteredImages = filter === 'all'
+    ? galleryImages
     : galleryImages.filter(img => img.category === filter);
 
   return (
@@ -93,10 +41,10 @@ const Gallery = () => {
         <title>Gallery - Sulax Solar Project Showcase</title>
         <meta name="description" content="View our portfolio of successful solar installations across North India. Residential, commercial, and industrial solar projects by Sulax Solar." />
       </Helmet>
-      
+
       <div className="min-h-screen">
         <Navbar />
-        
+
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-gradient-to-br from-primary/10 to-secondary/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,7 +58,7 @@ const Gallery = () => {
                 Project <span className="text-primary">Gallery</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore our portfolio of successful solar installations across North India, 
+                Explore our portfolio of successful solar installations across North India,
                 showcasing our expertise in residential, commercial, and industrial projects.
               </p>
             </motion.div>
@@ -130,11 +78,10 @@ const Gallery = () => {
                 <button
                   key={category.id}
                   onClick={() => setFilter(category.id)}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                    filter === category.id
+                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${filter === category.id
                       ? 'bg-primary text-white shadow-lg'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                    }`}
                 >
                   {category.label}
                 </button>
@@ -154,11 +101,11 @@ const Gallery = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group cursor-pointer"
-                  onClick={() => setSelectedImage(image.src)}
+                  onClick={() => setSelectedImage(image.image_url)}
                 >
                   <div className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105">
                     <img
-                      src={image.src}
+                      src={image.image_url}
                       alt={image.title}
                       className="w-full h-64 object-cover"
                     />
@@ -177,7 +124,7 @@ const Gallery = () => {
 
         {/* Modal */}
         {selectedImage && (
-          <div 
+          <div
             className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
