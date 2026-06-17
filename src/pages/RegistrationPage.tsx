@@ -32,12 +32,18 @@ const RegistrationPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
+
+  // Get today's date in YYYY-MM-DD format for max date restriction
+  const todayDate = new Date().toISOString().split('T')[0];
+
+  // Product model options
+  const productOptions = Array.from({ length: 9 }, (_, i) => `Sulax ${i + 2}KWP`);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -204,15 +210,18 @@ const RegistrationPage = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div className="sm:col-span-2">
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Product Model / Name *</label>
-                        <input
-                          type="text"
+                        <select
                           name="product_name"
                           required
                           value={formData.product_name}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none bg-gray-50 hover:bg-gray-100/50 focus:bg-white"
-                          placeholder="e.g. Sulax Premium Mono PERC 540W"
-                        />
+                          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none bg-gray-50 hover:bg-gray-100/50 focus:bg-white appearance-none cursor-pointer"
+                        >
+                          <option value="" disabled>Select your product model</option>
+                          {productOptions.map((opt) => (
+                            <option key={opt} value={opt}>{opt}</option>
+                          ))}
+                        </select>
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Installation Date *</label>
@@ -220,6 +229,7 @@ const RegistrationPage = () => {
                           type="date"
                           name="installation_date"
                           required
+                          max={todayDate}
                           value={formData.installation_date}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none bg-gray-50 hover:bg-gray-100/50 focus:bg-white"
@@ -228,13 +238,24 @@ const RegistrationPage = () => {
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">System Capacity / Unit *</label>
                         <input
-                          type="text"
+                          type="number"
                           name="capacity"
                           required
+                          min="0"
+                          step="any"
                           value={formData.capacity}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none bg-gray-50 hover:bg-gray-100/50 focus:bg-white"
-                          placeholder="e.g. 5kW"
+                          onKeyDown={(e) => {
+                            // Block alphabets and special chars except numbers, dot, backspace, tab, arrows
+                            if (
+                              !/[0-9.]/.test(e.key) &&
+                              !['Backspace', 'Tab', 'ArrowLeft', 'ArrowRight', 'Delete', 'Home', 'End'].includes(e.key)
+                            ) {
+                              e.preventDefault();
+                            }
+                          }}
+                          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none bg-gray-50 hover:bg-gray-100/50 focus:bg-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                          placeholder="e.g. 5"
                         />
                       </div>
                     </div>
