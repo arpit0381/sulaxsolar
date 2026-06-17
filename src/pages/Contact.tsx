@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle, AlertCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle, AlertCircle, Building2, Zap, Waves, ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { supabase } from '../backend/supabase';
@@ -344,6 +344,159 @@ const Contact = () => {
           </div>
         </section>
 
+        {/* Our Group of Companies Section */}
+        <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+          {/* Decorative background elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/10 rounded-full blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Section Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Building2 className="w-7 h-7 text-secondary" />
+                <span className="text-secondary font-semibold tracking-widest uppercase text-sm">
+                  Stronger Together
+                </span>
+                <Building2 className="w-7 h-7 text-secondary" />
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
+                Our Group of <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-secondary">Companies</span>
+              </h2>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                Part of a dynamic group delivering end-to-end energy solutions across India, 
+                backed by innovation and years of expertise.
+              </p>
+              {/* Decorative line */}
+              <div className="flex items-center justify-center gap-2 mt-8">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary" />
+                <div className="w-2 h-2 rounded-full bg-primary" />
+                <div className="h-px w-24 bg-primary" />
+                <div className="w-2 h-2 rounded-full bg-secondary" />
+                <div className="h-px w-16 bg-gradient-to-l from-transparent to-secondary" />
+              </div>
+            </motion.div>
+
+            {/* Company Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* OM POWER SOLUTIONS */}
+              <motion.div
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="group relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 hover:border-secondary/50 transition-all duration-500 h-full">
+                  {/* Icon Badge */}
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/25 group-hover:shadow-amber-500/40 transition-shadow duration-500">
+                    <Zap className="w-8 h-8 text-white" />
+                  </div>
+                  
+                  {/* Company Name */}
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-secondary transition-colors duration-300">
+                    OM POWER SOLUTIONS
+                  </h3>
+                  
+                  {/* Divider */}
+                  <div className="h-1 w-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full mb-4 group-hover:w-20 transition-all duration-500" />
+                  
+                  {/* Description */}
+                  <p className="text-gray-400 leading-relaxed mb-6">
+                    Delivering reliable power solutions and electrical infrastructure across commercial 
+                    and industrial sectors. Specialized in power distribution, transformers, and 
+                    energy management systems.
+                  </p>
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {['Power Systems', 'Electrical', 'Infrastructure'].map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* BLUE OCEAN ENERGY */}
+              <motion.div
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="group relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 hover:border-primary-light/50 transition-all duration-500 h-full">
+                  {/* Icon Badge */}
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/25 group-hover:shadow-cyan-500/40 transition-shadow duration-500">
+                    <Waves className="w-8 h-8 text-white" />
+                  </div>
+                  
+                  {/* Company Name */}
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary-light transition-colors duration-300">
+                    BLUE OCEAN ENERGY
+                  </h3>
+                  
+                  {/* Divider */}
+                  <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mb-4 group-hover:w-20 transition-all duration-500" />
+                  
+                  {/* Description */}
+                  <p className="text-gray-400 leading-relaxed mb-6">
+                    Pioneering clean and sustainable energy solutions for a greener tomorrow. 
+                    Focused on renewable energy projects, energy consulting, and green 
+                    technology implementation.
+                  </p>
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {['Renewable Energy', 'Consulting', 'Green Tech'].map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Bottom tagline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="text-center mt-14"
+            >
+              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="text-gray-300 text-sm font-medium">
+                  Together powering India's sustainable energy future
+                </span>
+                <ArrowRight className="w-4 h-4 text-gray-400" />
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
         <Footer />
       </div>
