@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import RegistrationPage from "./pages/RegistrationPage";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -23,6 +24,7 @@ import AdminServices from "./pages/admin/AdminServices";
 import AdminProjects from "./pages/admin/AdminProjects";
 import AdminGallery from "./pages/admin/AdminGallery";
 import AdminMessages from "./pages/admin/AdminMessages";
+import AdminRegistrations from "./pages/admin/AdminRegistrations";
 
 
 import { useState, useEffect } from "react";
@@ -60,6 +62,7 @@ const App = () => {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/register" element={<RegistrationPage />} />
 
                 {/* Admin Dashboard Routes */}
                 <Route path="/admin/login" element={<AdminLogin />} />
@@ -72,6 +75,7 @@ const App = () => {
                   <Route path="projects" element={<AdminProjects />} />
                   <Route path="gallery" element={<AdminGallery />} />
                   <Route path="messages" element={<AdminMessages />} />
+                  <Route path="registrations" element={<AdminRegistrations />} />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />

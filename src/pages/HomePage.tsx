@@ -3,6 +3,7 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import ServicesPreview from '../components/ServicesPreview';
+import RegistrationCTA from '../components/RegistrationCTA';
 import WhySulax from '../components/WhySulax';
 import StatsCounterSection from '../components/StatsCounterSection';
 import TestimonialSection from '../components/TestimonialSection';
@@ -27,6 +28,7 @@ const HomePage = () => {
         <Navbar />
         <HeroSection />
         <ServicesPreview />
+        <RegistrationCTA />
         <WhySulax />
         <StatsCounterSection />
         <TestimonialSection />

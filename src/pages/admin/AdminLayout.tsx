@@ -10,7 +10,8 @@ import {
     MessageSquare,
     LogOut,
     Menu,
-    X
+    X,
+    ShieldCheck
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -22,6 +23,7 @@ const NAV_ITEMS = [
     { path: '/admin/projects', label: 'Projects', icon: Briefcase },
     { path: '/admin/gallery', label: 'Gallery', icon: ImageIcon },
     { path: '/admin/messages', label: 'Messages', icon: MessageSquare },
+    { path: '/admin/registrations', label: 'Registrations', icon: ShieldCheck },
 ];
 
 export default function AdminLayout() {

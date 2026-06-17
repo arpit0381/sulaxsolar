@@ -78,6 +78,19 @@ CREATE TABLE public.hero_slides (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- 7. Product Registrations (Home Page)
+CREATE TABLE public.product_registrations (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  customer_name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  product_name TEXT NOT NULL,
+  installation_date TEXT NOT NULL,
+  capacity TEXT,
+  images TEXT[] DEFAULT '{}',
+  google_rated BOOLEAN DEFAULT false,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- ==========================================
 -- ROW LEVEL SECURITY (RLS) CONFIGURATION
 -- ==========================================
@@ -94,3 +107,4 @@ ALTER TABLE public.projects DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.gallery DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.contact_messages DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.hero_slides DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.product_registrations DISABLE ROW LEVEL SECURITY;
