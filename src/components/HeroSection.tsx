@@ -91,7 +91,14 @@ const HeroSection = () => {
   const slide = slides.length > 0 ? slides[current] : null;
 
   if (slides.length === 0) {
-    return <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gray-900"></section>;
+    return (
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+        <div className="animate-pulse flex flex-col items-center gap-4">
+          <div className="w-16 h-16 rounded-full bg-white/10" />
+          <div className="h-3 w-48 bg-white/10 rounded-full" />
+        </div>
+      </section>
+    );
   }
 
   return (

@@ -43,43 +43,44 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <AnimatePresence>
-        {isLoading && <Loader />}
-      </AnimatePresence>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <HashRouter>
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/contact" element={<Contact />} />
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <AnimatePresence mode="wait">
+          {isLoading ? (
+            <Loader key="loader" />
+          ) : (
+            <HashRouter key="app">
+              <ScrollToTop />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/contact" element={<Contact />} />
 
-              {/* Admin Dashboard Routes */}
-              <Route path="/admin/login" element={<AdminLogin />} />
+                {/* Admin Dashboard Routes */}
+                <Route path="/admin/login" element={<AdminLogin />} />
 
-              <Route path="/admin" element={<AdminLayout />}>
-                <Route index element={<AdminDashboardIndex />} />
-                <Route path="hero" element={<AdminHero />} />
-                <Route path="team" element={<AdminTeam />} />
-                <Route path="services" element={<AdminServices />} />
-                <Route path="projects" element={<AdminProjects />} />
-                <Route path="gallery" element={<AdminGallery />} />
-                <Route path="messages" element={<AdminMessages />} />
-              </Route>
+                <Route path="/admin" element={<AdminLayout />}>
+                  <Route index element={<AdminDashboardIndex />} />
+                  <Route path="hero" element={<AdminHero />} />
+                  <Route path="team" element={<AdminTeam />} />
+                  <Route path="services" element={<AdminServices />} />
+                  <Route path="projects" element={<AdminProjects />} />
+                  <Route path="gallery" element={<AdminGallery />} />
+                  <Route path="messages" element={<AdminMessages />} />
+                </Route>
 
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </HashRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </>
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </HashRouter>
+          )}
+        </AnimatePresence>
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 };
 

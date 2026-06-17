@@ -14,7 +14,7 @@ const navItems = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 40);
   const location = useLocation();
   const isHome = location.pathname === '/';
 
@@ -39,7 +39,7 @@ const Navbar = () => {
 
         {/* GPU-Accelerated Background Layer */}
         <div
-          className="absolute inset-0 bg-white shadow-md transition-opacity duration-300 ease-in-out"
+          className="absolute inset-0 bg-white shadow-md transition-opacity duration-300 ease-in-out will-change-[opacity]"
           style={{ opacity: solidNav ? 1 : 0, pointerEvents: 'none' }}
         />
 
@@ -98,7 +98,7 @@ const Navbar = () => {
             {/* Mobile Hamburger Button (No box, just lines) */}
             <button
               onClick={() => setOpen(true)}
-              className={`md:hidden p-2 transition-colors duration-300 ${solidNav ? 'text-gray-900' : 'text-white'
+              className={`md:hidden p-2 transition-colors duration-200 will-change-auto ${solidNav ? 'text-gray-900' : 'text-white'
                 }`}
               aria-label="Open menu"
             >
